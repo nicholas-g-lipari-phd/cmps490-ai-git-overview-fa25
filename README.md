@@ -58,11 +58,14 @@ java tictactoe.Main
 - Start with random valid moves.
 - Extend with various algorithms such as minimax (full tree search).
 
+
 ### Team 5 – `Main.java`
-- Build a simple CLI menu:
+- Build a simple menu (CLI or GUI):
     - Play 2-player
     - Play vs AI
     - Quit
+- Output the board to either the console or a simple GUI (e.g., using `JOptionPane`).
+- Accept input from either the command line (Scanner) or GUI dialogs (`JOptionPane.showInputDialog`).
 - Launch Game and connect with other classes.
 
 
