@@ -1,3 +1,14 @@
+# Gradle build output
+/build/
+/.gradle/
+
+# VS Code settings
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
 # Compiled class file
 *.class
 

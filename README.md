@@ -25,7 +25,19 @@ The class period will demonstrate **GitHub branch protection** and **AI-assisted
 - Source root: `src`
 - Package: `tictactoe`
 
+
 ### Compile and Run
+
+#### Using Gradle (recommended)
+```bash
+# Compile the project
+./gradlew build
+
+# Run the application
+./gradlew run
+```
+
+#### Manual (javac/java)
 ```bash
 cd src/
 javac tictactoe/*.java
