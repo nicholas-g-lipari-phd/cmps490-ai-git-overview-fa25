@@ -10,6 +10,12 @@ package tictactoe;
  * For GUI, you may use javax.swing.JOptionPane for input/output dialogs.
  */
 public class Main {
+    /**
+     * Launches the TicTacToe application and handles user interaction.
+     * Shows the menu and starts the game loop.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         // TODO: Show menu (play 2-player, play vs AI, quit)
         // TODO: Start a Game object and loop until game ends
