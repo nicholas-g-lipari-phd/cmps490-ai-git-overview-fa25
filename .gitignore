@@ -6,9 +6,10 @@
 .vscode/
 
 # IntelliJ IDEA
-.idea/
-*.iml
+#.idea/
+#*.iml
 out/
+
 # Compiled class file
 *.class
 
