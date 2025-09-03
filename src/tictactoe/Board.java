@@ -8,13 +8,19 @@ package tictactoe;
 public class Board {
     private char[][] grid;
 
+    //! TODO: add a public static member to hold how X, O, and empty cells are represented (e.g., 'X', 'O', and ' ' or '-')
 
     /**
      * Initializes an empty 3x3 TicTacToe board.
      * Fills all cells with spaces or '-'.
      */
     public Board() {
-        // TODO: create 3x3 grid filled with spaces or '-'
+        grid = new char[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                grid[i][j] = ' ';
+            }
+        }
     }
 
 
@@ -23,7 +29,7 @@ public class Board {
      * Displays rows and columns for user reference.
      */
     public void printBoard() {
-        // TODO: display rows and columns
+        // Stub: print nothing for now
     }
 
 
@@ -35,7 +41,7 @@ public class Board {
      * @param mark the character to place ('X' or 'O')
      */
     public void placeMark(int row, int col, char mark) {
-        // TODO: set grid[row][col]
+        // Stub: do nothing
     }
 
 
@@ -47,7 +53,7 @@ public class Board {
      * @return the character at the specified location ('X', 'O', or empty)
      */
     public char getMark(int row, int col) {
-        // TODO: return mark
+        // Stub: always return empty
         return ' ';
     }
 
@@ -55,7 +61,9 @@ public class Board {
     /**
      * Clears the board for a new game by resetting all cells to empty.
      */
-    public void reset() { /* ... */ }
+    public void reset() {
+        // Stub: do nothing
+    }
 
 
     /**
@@ -63,7 +71,10 @@ public class Board {
      *
      * @return true if the board is full, false otherwise
      */
-    public boolean isFull() { /* ... */ }
+    public boolean isFull() {
+        // Stub: always return false
+        return false;
+    }
 
 
     /**
@@ -71,7 +82,10 @@ public class Board {
      *
      * @return a new Board object with the same state as this board
      */
-    public Board copy() { /* ... */ }
+    public Board copy() {
+        // Stub: return a new empty board
+        return new Board();
+    }
 
 
     /**
@@ -79,7 +93,10 @@ public class Board {
      *
      * @return a string encoding the current board state
      */
-    public String serialize() { /* ... */ }
+    public String serialize() {
+        // Stub: return empty string
+        return "";
+    }
 
 
     /**
@@ -87,5 +104,7 @@ public class Board {
      *
      * @param data the string encoding of a board state
      */
-    public void deserialize(String data) { /* ... */ }
+    public void deserialize(String data) {
+        // Stub: do nothing
+    }
 }
