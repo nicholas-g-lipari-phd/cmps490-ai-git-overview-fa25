@@ -28,4 +28,19 @@ public class Board {
         // TODO: return mark
         return ' ';
     }
+
+    /** Clears the board for a new game. */
+    public void reset() { /* ... */ }
+
+    /** Returns true if the board is full. */
+    public boolean isFull() { /* ... */ }
+
+    /** Returns a deep copy of the board. */
+    public Board copy() { /* ... */ }
+
+    /** Returns a string representation of the board state. */
+    public String serialize() { /* ... */ }
+
+    /** Loads the board state from a string. */
+    public void deserialize(String data) { /* ... */ }
 }
