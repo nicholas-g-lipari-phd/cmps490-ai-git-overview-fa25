@@ -29,7 +29,19 @@ public class AiPlayer {
      */
     private int[] randomValidMove(Board board) {
         // TODO: implement random valid move selection
-        return new int[]{0, 0};
+        int row = 0;
+        int column = 0;
+
+        while (true) {
+            row = rand.nextInt(3);
+            column = rand.nextInt(3);
+
+            if (board.getMark(row, column) != 'O' && board.getMark(row, column) != 'X') {
+                break;
+            }
+        }
+
+        return new int[]{row, column};
     }
 
 
