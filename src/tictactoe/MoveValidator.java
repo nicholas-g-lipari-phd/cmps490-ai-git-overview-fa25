@@ -16,9 +16,12 @@ public class MoveValidator {
      * @return true if the move is valid, false otherwise
      */
     public boolean isValidMove(Board board, int row, int col) {
-        // TODO: check 0 <= row, col <= 2 and that spot is empty
-        //sample change
-        return false;
+        // Check if row and col are within bounds
+        if (row < 0 || row > 2 || col < 0 || col > 2) {
+            return false;
+        }
+        // Check if the cell is empty
+        return board.getMark(row, col) == ' ';
     }
 
 
@@ -29,7 +32,31 @@ public class MoveValidator {
      * @return 'X' if X has won, 'O' if O has won, or ' ' if no winner
      */
     public char checkWinner(Board board) {
-        // TODO: check rows, columns, diagonals
+        // Check rows and columns
+        for (int i = 0; i < 3; i++) {
+            // Check row
+            char rowMark = board.getMark(i, 0);
+            if (rowMark != ' ' && rowMark == board.getMark(i, 1) && rowMark == board.getMark(i, 2)) {
+                return rowMark;
+            }
+            // Check column
+            char colMark = board.getMark(0, i);
+            if (colMark != ' ' && colMark == board.getMark(1, i) && colMark == board.getMark(2, i)) {
+                return colMark;
+            }
+        }
+        // Check diagonals
+        char center = board.getMark(1, 1);
+        if (center != ' ') {
+            // Top-left to bottom-right
+            if (center == board.getMark(0, 0) && center == board.getMark(2, 2)) {
+                return center;
+            }
+            // Top-right to bottom-left
+            if (center == board.getMark(0, 2) && center == board.getMark(2, 0)) {
+                return center;
+            }
+        }
         return ' ';
     }
 
@@ -41,7 +68,7 @@ public class MoveValidator {
      * @return true if the board is full and there is no winner
      */
     public boolean isDraw(Board board) {
-        // TODO: check grid for empties
-        return false;
+    // If the board is full and there is no winner, it's a draw
+    return board.isFull() && checkWinner(board) == ' ';
     }
 }
