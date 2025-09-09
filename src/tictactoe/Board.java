@@ -8,7 +8,9 @@ package tictactoe;
 public class Board {
     private char[][] grid;
 
-    //! TODO: add a public static member to hold how X, O, and empty cells are represented (e.g., 'X', 'O', and ' ' or '-')
+    public static final char X_MARK = 'X';
+    public static final char O_MARK = 'O';
+    public static final char EMPTY_MARK = ' ';
 
     /**
      * Initializes an empty 3x3 TicTacToe board.
@@ -29,7 +31,16 @@ public class Board {
      * Displays rows and columns for user reference.
      */
     public void printBoard() {
-        // Stub: print nothing for now
+        System.out.println("  0 1 2");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(i + " ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(grid[i][j]);
+                if (j < 2) System.out.print("|");
+            }
+            System.out.println();
+            if (i < 2) System.out.println("  -----");
+        }
     }
 
 
@@ -41,7 +52,11 @@ public class Board {
      * @param mark the character to place ('X' or 'O')
      */
     public void placeMark(int row, int col, char mark) {
-        // Stub: do nothing
+        if (row >= 0 && row < 3 && col >= 0 && col < 3) {
+            if (mark == X_MARK || mark == O_MARK) {
+                grid[row][col] = mark;
+            }
+        }
     }
 
 
@@ -53,8 +68,10 @@ public class Board {
      * @return the character at the specified location ('X', 'O', or empty)
      */
     public char getMark(int row, int col) {
-        // Stub: always return empty
-        return ' ';
+        if (row >= 0 && row < 3 && col >= 0 && col < 3) {
+            return grid[row][col];
+        }
+        return EMPTY_MARK;
     }
 
 
@@ -62,7 +79,11 @@ public class Board {
      * Clears the board for a new game by resetting all cells to empty.
      */
     public void reset() {
-        // Stub: do nothing
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                grid[i][j] = EMPTY_MARK;
+            }
+        }
     }
 
 
@@ -72,8 +93,14 @@ public class Board {
      * @return true if the board is full, false otherwise
      */
     public boolean isFull() {
-        // Stub: always return false
-        return false;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (grid[i][j] == EMPTY_MARK) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 
@@ -83,8 +110,13 @@ public class Board {
      * @return a new Board object with the same state as this board
      */
     public Board copy() {
-        // Stub: return a new empty board
-        return new Board();
+        Board newBoard = new Board();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                newBoard.grid[i][j] = this.grid[i][j];
+            }
+        }
+        return newBoard;
     }
 
 
@@ -94,8 +126,13 @@ public class Board {
      * @return a string encoding the current board state
      */
     public String serialize() {
-        // Stub: return empty string
-        return "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                sb.append(grid[i][j]);
+            }
+        }
+        return sb.toString();
     }
 
 
@@ -105,6 +142,12 @@ public class Board {
      * @param data the string encoding of a board state
      */
     public void deserialize(String data) {
-        // Stub: do nothing
+        if (data != null && data.length() == 9) {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    grid[i][j] = data.charAt(i * 3 + j);
+                }
+            }
+        }
     }
 }
