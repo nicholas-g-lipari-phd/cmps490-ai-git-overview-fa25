@@ -17,6 +17,7 @@ public class MoveValidator {
      */
     public boolean isValidMove(Board board, int row, int col) {
         // TODO: check 0 <= row, col <= 2 and that spot is empty
+        //sample change
         return false;
     }
 
